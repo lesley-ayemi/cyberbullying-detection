@@ -5,7 +5,9 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.externals import joblib
+# from sklearn.externals import joblib
+import sklearn.externals
+import joblib
 
 app = Flask(__name__)
 Bootstrap(app)

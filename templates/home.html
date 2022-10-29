@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
 		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-	<title>Hate Speech Detection</title>
+	<title>CyberBullying Detection</title>
 
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
 
@@ -47,23 +47,23 @@
 </head>
   <body>
     <div class="container-fluid">
-      <div class="clearfix">
+      <!-- <div class="clearfix">
         <div class="float-left">hello</div>
         <div class="float-right">
 			<div class="buttons">
 				<a href="" class="btn btn-transparent">How To Use</a>
 			</div>
 		</div>
-	  </div>
+	  </div> -->
 	  
-	  <div class="row justify-content-center">
-		<div class="col-lg-4">
+	  <div class="row text-center">
+		<div class="col-lg-12">
 			<h1 style="font-family: 'Lato', sans-serif;
 											font-size: 3rem;
 											line-height: 1.875;">
-				Hate Speech Detection</h1>
-				<div class="text-wrap font-weight-normal text-center" style="max-width: 30rem; font-size: 1.2rem;">
-					Hate speech detection tools  detects abusive words, and contents which promotes violence.</div>
+				CyberBullying Detection</h1>
+				<div class="text-wrap font-weight-normal text-center">
+					Hate speech detection tools  detects abusive words, and contents which promotes cyberbullying.</div>
 		</div>
 	  </div>
 
@@ -84,7 +84,7 @@
 
 						
 						<div class="text-center">
-								<button type="submit" class="btn btn-success submit-btn" >Predict</button>
+								<button type="submit" class="btn btn-success submit-btn" >Check</button>
 						</div>
 						
 					</form>
@@ -100,19 +100,51 @@
 	
 	
 	
-    
+	{% if prediction == 1 %}
+    <div class="container mt-4">
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+				<th scope="col">Text</th>
+				<th scope="col">Cyberbullying Detection</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td>{{user_comment}}</td>
+				<td><h3 class="badge badge-danger text-uppercase">Cyberbullying</h3></td>
+			
+			  </tr>
+			  <tr>
+			</tr>
+			</tbody>
+		</table>
+	</div>
 
-    
+	{% elif prediction == 0 %}
 
-    {% if prediction == 1%}
-    <h2>Your Comment</h2>
-    {{user_comment}}
-    <h2>Hate Speech Detected</h2>
-    {% elif prediction == 0%}
-    <h2>Your Comment</h2>
-    {{user_comment}}
-    <h2>Not Hate Speech</h2>
-    {% endif %}
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+				<th scope="col">Text</th>
+				<th scope="col">Cyberbullying Detection</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td>{{user_comment}}</td>
+				<td><h3 class="badge badge-success text-uppercase">Not Cyberbullying</h3></td>
+			
+			  </tr>
+			  <tr>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+		
+	{% endif %}
+		
   
 
 
